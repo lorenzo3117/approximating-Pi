@@ -1,8 +1,8 @@
 // Constanten en variabelen
 const straal = 400
 const diameter = straal * 2
-const offset = 60 // Voor de tekst vanboven
-const aantalPuntenPerFrame = 500
+const offset = 120 // Voor de tekst vanboven
+const aantalPuntenPerFrame = 10
 let aantalPuntenGeplaatst = 0
 let aantalPuntenInCirkel = 0
 let bestePi = 0
@@ -17,6 +17,12 @@ function setup() {
     ellipseMode(CORNER)
     fill(100)
     ellipse(0, offset, diameter, diameter)
+
+    // Pi waarde
+    fill(255)
+    rect(0, 0, width, offset)
+    fill(0)
+    text("Pi: " + Math.PI, 15, 105)
 }
 
 function draw() {
@@ -42,25 +48,24 @@ function draw() {
             // Teken het punt
             tekenPunt()
         }
-    }
 
-    // Bereken pi; formule uitgelegd in CodingTrain video gelinkt op Github
-    let pi = 4 * aantalPuntenInCirkel / aantalPuntenGeplaatst
+        // Bereken pi; formule uitgelegd in CodingTrain video gelinkt op Github
+        let pi = 4 * aantalPuntenInCirkel / aantalPuntenGeplaatst
 
-    
-    // Behoud van best pi, uitgelehd in CodingTrain video gelinkt op Github
-    let bestePiVerschil = abs(Math.PI - bestePi)
-    let piVerschil = abs(Math.PI - pi)
-    if (piVerschil < bestePiVerschil) {
-        bestePiVerschil = piVerschil
-        bestePi = pi
+        // Behoud van best pi, uitgelehd in CodingTrain video gelinkt op Github
+        let bestePiVerschil = abs(Math.PI - bestePi)
+        let piVerschil = abs(Math.PI - pi)
+        if (piVerschil < bestePiVerschil) {
+            bestePiVerschil = piVerschil
+            bestePi = pi
+        }
     }
 
     // Bovenste witte rechthoek om de tekst van de vorige frame weg te doen
     fill(255)
-    rect(0, 0, width, offset)
+    rect(0, 0, width, offset/2)
     fill(0)
-    text(bestePi, 15, 45)
+    text("Pi record: " + bestePi, 15, 45)
 }
 
 function puntNietOpCirkel() {
