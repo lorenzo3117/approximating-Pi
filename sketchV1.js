@@ -7,7 +7,6 @@ let aantalPuntenGeplaatst = 0
 let aantalPuntenInCirkel = 0
 let pi
 
-
 function setup() {
     createCanvas(diameter, diameter+offset)
     background(50)
