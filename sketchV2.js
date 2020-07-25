@@ -2,7 +2,7 @@
 const straal = 400
 const diameter = straal * 2
 const offset = 120 // Voor de tekst vanboven
-const aantalPuntenPerFrame = 10
+const aantalPuntenPerFrame = 100
 let aantalPuntenGeplaatst = 0
 let aantalPuntenInCirkel = 0
 let bestePi = 0
